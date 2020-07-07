@@ -211,24 +211,6 @@ nnoremap X $x
 "--------------------------------------------------------------
 call plug#begin('~/.vim/bundle')
 
-" ------ IDE and UI features ------
-Plug 'mhinz/vim-startify'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
-Plug 'liuchengxu/vim-which-key'
-" Plug 't9md/vim-choosewin'
-
-" Assync Run (Vim 8?)
-Plug 'skywind3000/asyncrun.vim'
-" Plug 'skywind3000/asynctasks.vim'  " this is good but a bit heavy
-
-" Stats
-" Plug 'dstein64/vim-startuptime'
-
-" Fuzzy finder
-Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
-" fzf can integrate ag, awk etc
-
 " ------ Colour Schemes ------
 " TODO: Airline remove battery, add pyenv, cf :h statusline
 "   if font not compatible, use other seperator
@@ -333,6 +315,11 @@ Plug 'SirVer/ultisnips'
 
 " ------ Miscellanous ------
 " Plug 'jamessan/vim-gnupg'
+
+" ------ Load Plugins ------
+if filereadable(expand($VIMRCDIR.'/plugconf/list.vim'))
+    so $VIMRCDIR/plugconf/list.vim
+endif
 
 " ------ Load Custom Plugins ------
 if filereadable(expand($VIMRCDIR.'/custom/plugins.vim'))
