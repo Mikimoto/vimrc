@@ -317,8 +317,8 @@ Plug 'SirVer/ultisnips'
 " Plug 'jamessan/vim-gnupg'
 
 " ------ Load Plugins ------
-if filereadable(expand($VIMRCDIR.'/plugconf/list.vim'))
-    so $VIMRCDIR/plugconf/list.vim
+if filereadable(expand($VIMRCDIR.'/plugInstall.vim'))
+    so $VIMRCDIR/plugInstall.vim
 endif
 
 " ------ Load Custom Plugins ------

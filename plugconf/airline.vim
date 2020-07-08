@@ -1,7 +1,16 @@
+let g:airline_theme = 'powerlineish'
 let g:airline_skip_empty_sections = 1
 let g:airline_section_c = "%f %{&readonly ? '[RO] ' : ''} %{exists('*FindSubName') ? FindSubName() : ''}"
+
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+
 let g:airline#extensions#tabline#buffer_idx_mode = 1  " show buffer nu
 let g:airline#extensions#tabline#enabled = 1  " Automatically displays all buffers when there's only one tab open.
+
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#virtualenv#enabled = 1
 
 let g:airline_powerline_fonts = 1  " requires powerline-fonts
 
