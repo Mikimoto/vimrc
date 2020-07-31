@@ -160,23 +160,6 @@ augroup end
 
 set fileformats=unix,dos,mac
 
-" ------ Terminal Setting ------
-let no_buffers_menu=1
-silent! colorscheme molokai
-
-set mousemodel=popup
-set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
-
-if $COLORTERM == 'gnome-terminal'
-  set term=gnome-256color
-else
-  if $TERM == 'xterm'
-    set term=xterm-256color
-  endif
-endif
-
 " ------ Keymaps ------
 " NB Some keymaps are loaded later
 " Fast split navigations
@@ -210,26 +193,6 @@ nnoremap X $x
 " Plugins
 "--------------------------------------------------------------
 call plug#begin('~/.vim/bundle')
-
-" ------ Colour Schemes ------
-" TODO: Airline remove battery, add pyenv, cf :h statusline
-"   if font not compatible, use other seperator
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/seoul256.vim' 
-Plug 'arcticicestudio/nord-vim'
-Plug 'sickill/vim-monokai'
-
-" ------ Git Support ------
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'  "faster than vim-gitgutter
-Plug 'mattn/vim-gist', { 'on': 'Gist'}
-  let g:gist_open_browser_after_post = 1
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'junegunn/vim-emoji'
-"   command! -range EmojiReplace <line1>,<line2>s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 
 " ------ Language Server Client ------
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
@@ -281,38 +244,6 @@ Plug 'chrisdone/hindent', { 'for': 'haskell'}
 " Agda
 " ...
 
-" ------ Editing ------
-" Parentheses helper
-Plug 'tpope/vim-surround'
-" Reapeating plugin
-Plug 'tpope/vim-repeat'
-" Comment operator (gc)
-Plug 'tpope/vim-commentary'
-" Tabular
-Plug 'godlygeek/tabular'
-
-" vim-multiple-cursors  " Multi-cursor is poisonous
-
-" Improved increment <C-a>/<C-x>
-Plug 'tpope/vim-speeddating'
-
-" Undo Tree
-" Plug 'mbbill/undotree'
-
-" Auxiliary indicator
-Plug 'Yggdroot/indentLine'
-Plug 'luochen1990/rainbow', { 'on': 'RainbowToggle' }
-  let g:rainbow_active = 0  " default off
-
-" Focus mode
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-":CocInstall coc-snippets
-" Plug 'honza/vim-snippets'
-
 " ------ Miscellanous ------
 " Plug 'jamessan/vim-gnupg'
 
@@ -335,19 +266,6 @@ SourceAll $VIMRCDIR.'/plugconf'
 " AsyncRun for fugitive
 if &runtimepath =~? 'asyncrun'
   command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-endif
-
-" GUI settings
-set termguicolors  " need +termguicolors
-" termguicolors sometimes cause problem
-if has('gui_running')
-  colorscheme nord
-else
-  "let g:gruvbox_contrast_dark = 'medium'
-  let g:gruvbox_improved_warnings = 1
-  set background=dark
-  colorscheme gruvbox
-  let g:airline_theme = 'gruvbox'
 endif
 
 " Change cursor under different modes (for iTerm2 only)

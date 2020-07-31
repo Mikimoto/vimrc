@@ -3,7 +3,6 @@ Plug 'mhinz/vim-startify'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-eunuch'
 
 " ------ Colour Schemes ------
@@ -11,6 +10,11 @@ Plug 'tpope/vim-eunuch'
 "   if font not compatible, use other seperator
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" low-contrast Vim color scheme
+"Plug 'junegunn/seoul256.vim' 
+"Plug 'arcticicestudio/nord-vim'
+Plug 'sickill/vim-monokai'
 
 Plug 'morhetz/gruvbox'
 
@@ -23,6 +27,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 " Tabular
 Plug 'godlygeek/tabular'
+
+Plug 'Raimondi/delimitMate'
 
 " Multi-cursor is poisonous
 Plug 'terryma/vim-multiple-cursors'

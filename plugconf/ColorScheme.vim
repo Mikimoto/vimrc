@@ -1,3 +1,20 @@
+" ------ Terminal Setting ------
+let no_buffers_menu=1
+silent! colorscheme molokai
+
+set mousemodel=popup
+set t_Co=256
+set guioptions=egmrti
+set gfn=Monospace\ 10
+
+if $COLORTERM == 'gnome-terminal'
+  set term=gnome-256color
+else
+  if $TERM == 'xterm'
+    set term=xterm-256color
+  endif
+endif
+
 " GUI settings
 set termguicolors  " need +termguicolors
 " termguicolors sometimes cause problem
