@@ -32,7 +32,7 @@ set incsearch
 "set hidden     " Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 set mouse=nv		" Enable mouse usage (Normal + Visual modes)
-
+set backspace=indent,eol,start
 
 " Other
 " =====

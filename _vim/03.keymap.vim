@@ -7,4 +7,12 @@
 "  Reference: https://github.com/mikimoto/vimrc/blob/master/_vim/03.keymap.vim
 " =============================================================================
 
+" Valloric/YouCompleteMe (code-completion)
+" ----------------------------------------
+nmap <silent> <leader>yg :YcmCompleter GoTo<CR>
+nmap <silent> <leader>yf :YcmCompleter FixIt<CR>
 
+" scrooloose/nerdtree
+" ----------------------------------------
+nnoremap <silent> <C-a> :NERDTreeToggle <CR>
+nmap <leader>r :NERDTreeRefreshRoot <CR>

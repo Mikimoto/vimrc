@@ -8,7 +8,7 @@
 " =============================================================================
 
 " Add and update declare.
-map <leader>a :call TitleDet()<cr>'s
+map <leader>h :call TitleDet()<cr>'s
 
 function! AddTitle()
   call append(1,"# =============================================================================")

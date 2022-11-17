@@ -16,7 +16,6 @@ let base16colorspace=256
 " colorscheme base16-dracula
 colorscheme base16-harmonic-dark
 
-let g:airline_theme='base16_harmonic_dark'
 
 " Cursor
 " ------
