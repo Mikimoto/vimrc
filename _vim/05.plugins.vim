@@ -1,8 +1,8 @@
 " =============================================================================
 "  Author: Mikimoto / mikimoto (at) deepthought.com.tw
 "  Blog: https://mikimoto.github.io
-"  Filename: 05.plugins.vim
-"  Last Modified: 2022-11-17 09:29
+"  Filename:	05.plugins.vim
+"  Last Modified:	2022-11-17 23:19
 "  Description: 
 "  Reference:
 " =============================================================================
@@ -45,7 +45,7 @@ function StartUp()
         NERDTree
     endif
 endfunction
-autocmd VimEnter * call StartUp()
+" autocmd VimEnter * call StartUp()
 
 
 " SirVer/ultisnips
@@ -142,13 +142,228 @@ let g:vim_markdown_math = 1
 " Enable YAML Front Matter.
 let g:vim_markdown_frontmatter = 1
 
-nnoremap <expr><enter> &ft=="qf" ? "<cr>:lcl<cr>" : (getpos(".")[2]==1 ? "i<cr><esc>": "i<cr><esc>l")
+
+" chusiang/vimcdoc-tw
+" --------------------
+set helplang=tw
 
 
-" airblade/vim-gitgutter
-" ----------------------
-nmap <leader>g :GitGutterToggle<CR>
+" easymotion/vim-easymotion
+" -------------------------
+let g:EasyMotion_smartcase = 1
 
-" jump next/previous bunks.
-nmap gh <Plug>GitGutterNextHunk
-nmap gH <Plug>GitGutterPrevHunk
+
+" mattn/emmet-vim
+" -------------------------
+" https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
+let g:user_emmet_leader_key='<C-Z>'
+
+" let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+" let g:user_emmet_mode='a'    "enable all function in all mode.
+
+
+
+" majutsushi/tagbar
+" ------------------
+let g:tagbar_autofocus = 1
+let g:tagbar_sort = 0
+
+if has('win32')
+  let g:tagbar_ctags_bin='C:\ctags.exe'
+endif
+
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+      \ 'h:headings',
+    \ ],
+  \ 'sort' : 0
+\ }
+
+
+" Yggdroot/indentLine
+" ------------------
+let g:indentLine_char_list = ['¦', '┆', '┊']  " only work with file encoding UTF-8
+let g:indentLine_setColors = 0  " use colourscheme default
+let g:indentLine_conceallevel = 2
+
+
+" mhinz/vim-startify
+" ------------------
+" TODO: recent git commit funcref
+let g:startify_lists = [
+      \ { 'type': 'files', 'header': ['    Recent Files'] },
+      \ { 'type': 'dir', 'header': ['    Recent Directory Edit ('.getcwd().')']},
+      \ { 'type': 'sessions', 'header': ['    Sessions']},
+      \ { 'type': 'bookmarks', 'header': ['    Bookmarks']},
+      \ ]
+
+let g:startify_bookmarks = [{'d': $MYVIMDOT},]
+let g:startify_files_number = 5
+let g:startify_change_to_dir = 1
+
+" TODO: Disable indentLine for a moment 
+" if g:indentLine_enabled
+"   IndentLinesToggle
+" endif
+
+let g:ascii_art = [
+      \ '                           _ooOoo                ',
+      \ '                          o8888888o                ',
+      \ '                          88" . "88                ',
+      \ '                          (| -_- |)                ',
+      \ '                          O\  =  /O                ',
+      \ "                       ____/`---'\____             ",
+      \ "                     .'  \\\\|     |//  `.             ",
+      \ '                    /  \\|||  :  |||//  \            ',
+      \ '                   /  _||||| -:- |||||_  \           ',
+      \ "                   |   | \\\\\\  -  /'| |   |            ",
+      \ "                   |  _|  `\\\\`---'//  |_/ |            ",
+      \ "                   \\ .-\\__ \\\\-. -'__/-.  /           ",
+      \ "                 ___`. .'  /--.--\\  `. .'___            ",
+      \ "              ./ / <  `.___\\_<|>_/___.' _> \\ \\.         ",
+      \ "             | | :  `- \\`. ;`. _/; .'/ /  .' ; |          ",
+      \ "             \  \ `-.   \\_\\_`. _.'_/_/  -' _.' /         ",
+      \ "   ===========`-.`___`-.__\\ \\___/ /__.-'_.'_.-'=============   ",
+      \ "                           `=--=-'                         ",
+      \]
+
+let g:startify_custom_header = startify#pad(g:ascii_art)
+
+
+" liuchengxu/vim-which-key
+" ------------------
+" TODO: local keys for specific filetype
+" ------ Misc ------
+set timeoutlen=500
+let g:which_key_map = {
+  \ 'h' : 'Open Onesimos Documentation',
+  \ 's' : { 'name' : 'Source', 'd' : 'Source Dotfile' },
+  \ }
+
+" ------ Toggle ------
+let g:which_key_map['t'] = {
+  \ 'name' : '+toggle',
+  \ 'r' : 'Toggle Relative Numbering',
+  \ 'w' : ['WPModeToggle', 'Toggle Word Processing Mode'],
+  \ 'i' : ['IndentLinesToggle', 'Toggle Indent Indicator'],
+  \ 'p' : ['ParenthesisToggle', 'Toggle Parenthesis Indicator'],
+  \ }
+
+" ------ Fuzzy finder ------
+let g:which_key_map['f'] = {
+  \ 'name' : '+Fuzzy',
+  \ 'f' : 'In Situ',
+  \ 'm' : 'Most Recent Files',
+  \ 'b' : 'Buffer',
+  \ 't' : 'Tags',
+  \ 'l' : 'Line',
+  \ }
+
+" ------ Current File ------
+let g:which_key_map['e'] = {
+  \ 'name' : '+File',
+  \ 'd' : 'Edit Dotfile',
+  \ 'r' : ['Rename', 'Rename File'],
+  \ 't' : 'Create Tags',
+  \ 'w' : ['update', 'Write Changes'],
+  \ 'p' : [':read !pbpaste', 'Paste Clipboard'],
+  \ }
+
+" ------ Window ------
+let g:window_resize_f = 15
+
+let g:which_key_map['w'] = {
+  \ 'name' : '+Window',
+  \ '-' : ['<C-W>s', 'Split Below'],
+  \ '|' : ['<C-W>v', 'Split Right'],
+  \ 'H' : [':vert res -'.g:window_resize_f, 'Resize Left'],
+  \ 'J' : [':res +'.g:window_resize_f, 'Resize Down'],
+  \ 'K' : [':res -'.g:window_resize_f, 'Resize Up'],
+  \ 'L' : [':vert res +'.g:window_resize_f, 'Resize Left'],
+  \ }
+
+" ------ Version Control ------
+let g:which_key_map['v'] = {
+      \ 'name' : '+Git',
+      \ 'b' : ['Gblame', 'fugitive-blame'],
+      \ 'C' : ['Gcommit', 'fugitive-commit'],
+      \ 'd' : ['Gdiff', 'fugitive-diff'],
+      \ 'e' : ['Gedit', 'fugitive-edit'],
+      \ 'l' : ['Glog', 'fugitive-log'],
+      \ 'r' : ['Gread', 'fugitive-read'],
+      \ 's' : ['Gstatus', 'fugitive-status'],
+      \ 'w' : ['Gwrite', 'fugitive-write'],
+      \ 'p' : ['Git push', 'fugitive-push'],
+      \ }
+
+" ------ Onesimos Settings ------
+" TODO: unicode decoration
+let g:which_key_map['\'] = {
+  \ 'name' : 'Onesimos Vim Settings',
+  \ 'u' : {
+    \ 'name' : 'User Interface',
+    \ 'c' : [':Leaderf colorscheme', 'Switch Colour Scheme'],
+    \ 'b' : ['ToggleBackground', 'Toggle Background Colour']
+    \ }
+  \ }
+
+" ------ Bookmark ------
+" let g:which_bookmark_key_map = {}
+" call which_key#register('M', 'g:which_bookmark_key_map')
+" let g:which_bookmark_key_map = {
+" \ 'name': '+bookmark',
+" \ 'm':    'Toggle bookmark',
+" \ 'i':    'Annotate bookmark',
+" \ 'n':    'Next bookmark',
+" \ 'p':    'Previous bookmark',
+" \ 'a':    'Show all bookmark',
+" \ 'c':    'Clear buffer bookmark',
+" \ 'x':    'Clear all bookmark',
+" \ }
+
+" ------ WhichKey Settings ------
+let g:which_key_use_floating_win = 1
+
+call which_key#register('\', 'g:which_key_map')
+
+
+" skywind3000/asyncrun.vim
+" ------------------
+let g:asyncrun_open = 8
+" :AsyncRun -mode=term -pos=tab ls -la
+" :AsyncRun -mode=term -pos=TAB -close -cwd=<root> ls -la
+" :AsyncRun -mode=term -pos=TAB -cwd=<root> ls -la
+" :AsyncRun -mode=term -pos=bottom -rows=10 ls -la"
+" :AsyncRun -mode=term -pos=right -cols=80 ls -la"
+" :AsyncRun -mode=term -pos=curwin python "$(VIM_FILEPATH)"
+" :AsyncRun -mode=term -pos=curwin -hidden python "$(VIM_FILEPATH)"
+
+
+" luochen1990/rainbow
+" ------------------
+let g:rainbow_active = 1 
+	let g:rainbow_conf = {
+	\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+	\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+	\	'operators': '_,_',
+	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+	\	'separately': {
+	\		'*': {},
+	\		'tex': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+	\		},
+	\		'lisp': {
+	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+	\		},
+	\		'vim': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+	\		},
+	\		'html': {
+	\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+	\		},
+	\		'css': 0,
+	\		'nerdtree': 0,
+	\	}
+	\}

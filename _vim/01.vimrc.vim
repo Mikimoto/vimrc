@@ -2,7 +2,7 @@
 "  Author:  Mikimoto / mikimoto (at) mopcon.org
 "  Blog:  https://mikimoto.github.io
 "  Filename:	01.vimrc.vim
-"  Last Modified:	2022-11-17 01:09
+"  Last Modified:	2022-11-17 23:18
 "  Description: uncategorized config.
 "  Reference: https://github.com/mikimoto/vimrc/blob/master/_vim/01.vimrc.vim
 " =============================================================================
@@ -104,13 +104,13 @@ set foldcolumn=1
 set foldlevel=6
 
 " save folds
-if !isdirectory("view")
-  " put view to tmp.
-  silent !mkdir /tmp/vim-view/ > /dev/null 2>&1
-  silent !ln -s /tmp/vim-view/ ~/.vim/view > /dev/null 2>&1
-endif
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+" if !isdirectory("view")
+"   " put view to tmp.
+"   silent !mkdir /tmp/vim-view/ > /dev/null 2>&1
+"   silent !ln -s /tmp/vim-view/ ~/.vim/view > /dev/null 2>&1
+" endif
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
 
 " disable sound on errors
 " -----------------------
@@ -119,8 +119,3 @@ set visualbell
 set noerrorbells
 set t_vb=
 set tm=500
-
-" support Neobundle in fish
-" -------------------------
-
-" set shell=/bin/bash

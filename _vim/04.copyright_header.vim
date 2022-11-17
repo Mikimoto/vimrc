@@ -2,7 +2,7 @@
 "  Author:  Mikimoto / mikimoto (at) deepthought.com.tw
 "  Blog:  https://mikimoto.github.io
 "  Filename:	04.copyright_header.vim
-"  Last Modified:	2022-11-16 23:29
+"  Last Modified:	2022-11-17 23:19
 "  Description: Copyright header update.
 "  Reference: https://github.com/mikimoto/vimrc/blob/master/_vim/04.copyright_header.vim
 " =============================================================================

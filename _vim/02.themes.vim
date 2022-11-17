@@ -2,7 +2,7 @@
 "  Author:  Mikimoto / mikimoto (at) deepthought.com.tw
 "  Blog:  https://mikimoto.github.io
 "  Filename:	02.themes.vim
-"  Last Modified:	2022-11-17 01:05
+"  Last Modified:	2022-11-17 23:19
 "  Description: Custon the themes like Cursor, GUI and title.
 "  Reference: https://github.com/mikimoto/vimrc/blob/master/_vim/02.themes.vim
 " =============================================================================
