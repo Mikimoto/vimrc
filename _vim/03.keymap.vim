@@ -23,7 +23,7 @@ nmap <silent> <leader>yf :YcmCompleter FixIt<CR>
 
 " scrooloose/nerdtree
 " ----------------------------------------
-nnoremap <silent> <C-a> :NERDTreeToggle <CR>
+nnoremap <silent> <C-d> :NERDTreeToggle <CR>
 nmap <leader>r :NERDTreeRefreshRoot <CR>
 
 
