@@ -7,7 +7,7 @@
 "  Reference: https://github.com/mikimoto/vimrc/blob/master/_vim/03.keymap.vim
 " =============================================================================
 
-#Better tab experience - from https://webdevetc.com/
+" Better tab experience - from https://webdevetc.com/
 map <leader>tn :tabnew<cr>
 map <leader>t<leader> :tabnext
 map <leader>tm :tabmove
@@ -72,7 +72,7 @@ map  N <Plug>(easymotion-prev)
 
 " majutsushi/tagbar
 " ------------------
-nmap <leader>t :<C-u>TagbarToggle<CR>
+nmap <leader>tg :<C-u>TagbarToggle<CR>
 
 
 " liuchengxu/vim-which-key
