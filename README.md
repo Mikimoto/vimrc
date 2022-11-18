@@ -10,7 +10,8 @@ This verison use `dein.vim` that can get the newest vim script use eazy way.
 - Vim 7.4 or above.
 - Curl
 - Git
-- make (Unix/Linux Only)
+- make
+- cmake
 
 ## Installation
 
