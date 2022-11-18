@@ -2,7 +2,7 @@
 "  Author: Mikimoto / mikimoto (at) deepthought.com.tw
 "  Blog: https://mikimoto.github.io
 "  Filename:	vimrc
-"  Last Modified:	2022-11-17 23:18
+"  Last Modified:	2022-11-18 19:36
 "  Description: 
 "  Reference: https://github.com/mikimoto/vimrc/blob/master/vimrc
 " =============================================================================
@@ -47,7 +47,7 @@ if dein#load_state('$HOME/.vim/bundle')
   call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-  call dein#add('Shougo/vimshell.vim')
+  call dein#add('Shougo/deol.nvim')
 
   call dein#add('chriskempson/base16-vim')
   call dein#add('vim-airline/vim-airline')

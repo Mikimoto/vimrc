@@ -53,8 +53,27 @@ Backup directory: `${HOME}/.vim_back-${data}`
 make backup
 ```
 
-## Clean backup
+### Clean backup
 
 ```bash
 make clean-backup-file
 ```
+
+## Include plugins
+
+### Plugins Management
+
+- [X] [dein.vim](https://github.com/Shougo/dein.vim) - Dark powered Vim/Neovim plugin manager.
+
+### Library
+
+- [x] [Shougo/vimproc.vim](https://github.com/Shougo/vimproc.vim) - A great asynchronous execution library for Vim.
+- [x] [junegunn/fzf](https://github.com/junegunn/fzf) - A general-purpose command-line fuzzy finder.
+
+### Files
+
+- [X] [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim) - A fzf Vim plugin.
+
+### Shell
+
+- [X] [Shougo/vimshell.vim](https://github.com/Shougo/vimshell.vim) - 
