@@ -7,6 +7,14 @@
 "  Reference: https://github.com/mikimoto/vimrc/blob/master/_vim/03.keymap.vim
 " =============================================================================
 
+#Better tab experience - from https://webdevetc.com/
+map <leader>tn :tabnew<cr>
+map <leader>t<leader> :tabnext
+map <leader>tm :tabmove
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+
+
 " Valloric/YouCompleteMe (code-completion)
 " ----------------------------------------
 nmap <silent> <leader>yg :YcmCompleter GoTo<CR>
@@ -42,7 +50,7 @@ nmap <leader>f <Plug>(easymotion-overwin-f)
 " s{char}{char} to move to {char}{char}
 " nmap s <Plug>(easymotion-overwin-f2)
 nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
+" nmap t <Plug>(easymotion-t2)
 
 " Move to line
 " map <Leader>l <Plug>(easymotion-bd-jk)
