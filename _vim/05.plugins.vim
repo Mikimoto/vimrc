@@ -242,8 +242,33 @@ let g:ascii_art = [
       \ "                           `=--=-'                         ",
       \]
 
-let g:startify_custom_header = startify#pad(g:ascii_art)
+if !exists('startify#pad')
+  let g:startify_custom_header = startify#pad(g:ascii_art)
 
+  autocmd VimEnter * 
+            \   if !argc()
+            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
+
+  if has('nvim')
+    autocmd TabNewEntered *
+            \   Startify
+            \ | NERDTree
+            \ | wincmd w
+  else
+    autocmd BufWinEnter *
+            \ if !exists('t:startify_new_tab')
+            \     && empty(expand('%'))
+            \     && empty(&l:buftype)
+            \     && &l:modifiable 
+            \ | let t:startify_new_tab = 1 
+            \ | Startify 
+            \ | endif
+  endif
+
+endif
 
 " liuchengxu/vim-which-key
 " ------------------
