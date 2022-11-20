@@ -243,6 +243,7 @@ let g:ascii_art = [
       \]
 
 try
+  call startify#pad(g:ascii_art)
   let g:startify_custom_header = startify#pad(g:ascii_art)
 
   autocmd VimEnter * 
