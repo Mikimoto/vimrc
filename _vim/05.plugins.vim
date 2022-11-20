@@ -242,7 +242,7 @@ let g:ascii_art = [
       \ "                           `=--=-'                         ",
       \]
 
-if !exists('startify#pad')
+try
   let g:startify_custom_header = startify#pad(g:ascii_art)
 
   autocmd VimEnter * 
@@ -267,8 +267,9 @@ if !exists('startify#pad')
             \ | Startify 
             \ | endif
   endif
-
-endif
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
 
 " liuchengxu/vim-which-key
 " ------------------
@@ -364,8 +365,9 @@ let g:which_key_map['\'] = {
 " ------ WhichKey Settings ------
 let g:which_key_use_floating_win = 1
 
-call which_key#register('\', 'g:which_key_map')
-
+if exists('which_key#register')
+  call which_key#register('\', 'g:which_key_map')
+endif
 
 " skywind3000/asyncrun.vim
 " ------------------

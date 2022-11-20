@@ -14,7 +14,11 @@ let base16colorspace=256
 
 " colorscheme base16-tomorrow-night-eighties
 " colorscheme base16-dracula
-colorscheme base16-harmonic-dark
+try
+    colorscheme base16-harmonic-dark
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
 
 
 " Cursor
