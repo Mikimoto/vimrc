@@ -242,9 +242,7 @@ let g:ascii_art = [
       \ "                           `=--=-'                         ",
       \]
 
-try
-  call startify#pad(g:ascii_art)
-  let g:startify_custom_header = startify#pad(g:ascii_art)
+  "let g:startify_custom_header = startify#pad(g:ascii_art)
 
   autocmd VimEnter * 
             \   if !argc()
@@ -268,9 +266,7 @@ try
             \ | Startify 
             \ | endif
   endif
-catch /^Vim\%((\a\+)\)\=:E185/
-    " deal with it
-endtry
+
 
 " liuchengxu/vim-which-key
 " ------------------
