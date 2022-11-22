@@ -275,6 +275,7 @@ let g:ascii_art2 = [
       \ '            .:::::::::-=======-:::::::::::::::::::::::::::::::::::::::::::::::',                    
       \]
 
+try
   let g:startify_custom_header = startify#pad(g:ascii_art2)
 
   autocmd VimEnter * 
@@ -299,7 +300,9 @@ let g:ascii_art2 = [
             \ | Startify 
             \ | endif
   endif
-
+catch
+  " do something
+endtry
 
 " liuchengxu/vim-which-key
 " ------------------
